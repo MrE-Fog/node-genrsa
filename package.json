@@ -1,6 +1,6 @@
 {
   "name": "node-genrsa",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generate public and private keypair using OpenSSL",
   "main": "dist/index",
   "typings": "dist/index",
@@ -14,7 +14,13 @@
   },
   "author": "Patt-Tom McDonnell <pt@stepsize.com>",
   "license": "MIT",
-  "keywords": ["genrsa", "keypair", "openssl", "pem", "rsa"],
+  "keywords": [
+    "genrsa",
+    "keypair",
+    "openssl",
+    "pem",
+    "rsa"
+  ],
   "devDependencies": {
     "@types/node": "^9.4.0",
     "typescript": "^2.6.2"
