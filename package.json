@@ -1,0 +1,22 @@
+{
+  "name": "node-genrsa",
+  "version": "1.0.0",
+  "description": "Generate public and private keypair using OpenSSL",
+  "main": "dist/index",
+  "scripts": {
+    "prepublishOnly": "yarn compile",
+    "compile": "tsc -p ."
+  },
+  "typings": "dist/index",
+  "author": "Patt-Tom McDonnell <pt@stepsize.com>",
+  "license": "MIT",
+  "keywords": ["genrsa", "keypair", "openssl", "pem", "rsa"],
+  "devDependencies": {
+    "@types/node": "^9.4.0",
+    "typescript": "^2.6.2"
+  },
+  "files": [
+    "dist/index.js",
+    "dist/index.d.ts"
+  ]
+}
