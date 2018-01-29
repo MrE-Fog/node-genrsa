@@ -3,11 +3,15 @@
   "version": "1.0.0",
   "description": "Generate public and private keypair using OpenSSL",
   "main": "dist/index",
+  "typings": "dist/index",
   "scripts": {
     "prepublishOnly": "yarn compile",
     "compile": "tsc -p ."
   },
-  "typings": "dist/index",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/Stepsize/node-genrsa.git"
+  },
   "author": "Patt-Tom McDonnell <pt@stepsize.com>",
   "license": "MIT",
   "keywords": ["genrsa", "keypair", "openssl", "pem", "rsa"],
