@@ -1,6 +1,6 @@
 {
   "name": "node-genrsa",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Generate public and private keypair using OpenSSL",
   "main": "dist/index",
   "typings": "dist/index",
