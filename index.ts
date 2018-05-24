@@ -32,7 +32,7 @@ const keyPair = async (opts?: KeyPairOptions) : Promise<KeyPair> => {
 
   if (options.bits < 64) {
     // See: https://wiki.openssl.org/index.php/Manual:Genrsa(1)
-    throw new Error('Prime generation algorithm cannot generate small primes. Therefore the number of bits should not be less that 64.');
+    throw new Error('Error: Prime generation algorithm cannot generate small primes. Therefore the number of bits should not be less that 64.');
   }
 
   const privateName = `${Date.now()}-${randomBytes(8).toString('hex')}`;
@@ -42,7 +42,8 @@ const keyPair = async (opts?: KeyPairOptions) : Promise<KeyPair> => {
   try {
     await execPromise(privateCmd, { cwd: __dirname });
   } catch (e) {
-    throw new Error('Could not generate private key');
+    e.message = `Error: Could not generate private key: ${e.message}`
+    throw e;
   }
 
   const publicName = `${privateName}-pub`;
@@ -51,7 +52,8 @@ const keyPair = async (opts?: KeyPairOptions) : Promise<KeyPair> => {
   try {
     await execPromise(publicCmd, { cwd: __dirname });
   } catch (e) {
-    throw new Error('Could not calculate public key');
+    e.message = `Error: Could not calculate public key: ${e.message}`
+    throw e;
   }
 
   const keyPromises = [
@@ -69,7 +71,8 @@ const keyPair = async (opts?: KeyPairOptions) : Promise<KeyPair> => {
   try {
     await Promise.all(unlinkKeyPromises);
   } catch (e) {
-    throw new Error('Could not unlink temporary key files');
+    e.message = `Error: Could not unlink temporary key files: ${e.message}`
+    throw e;
   }
 
   return {
